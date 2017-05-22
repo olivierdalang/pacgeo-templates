@@ -1,0 +1,28 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% block title %} {% trans "About PacGeo" %} — {{ block.super }} {% endblock %}
+
+{% block body_outer %}
+
+<div class="page-header" align="center">
+  <h2>{% trans "PacGeo" %}</h2>
+</div>
+
+<div align="center">
+  <img align="center" src="http://www.pacgeo.org/static/geonode/img/pacgeo_header.png"/>
+</div>
+
+<p class="lead">An <b>open access geospatial data repository</b> for the Pacific Region providing premier <b>geophysical, geodetic, and marine spatial data sets.</b></p>
+
+<p align="justify" style="text-align: justify">
+PacGeo is a geospatial content management system, a platform for the management and publication of geospatial data for the Pacific Region. It brings together mature and stable open-source software projects under a consistent and easy-to-use interface allowing non-specialized users to share data and create interactive maps.
+</p>
+<p>
+Data management tools built into PacGeo allow for integrated creation of data, metadata, and map visualizations. Each dataset in the system can be shared publicly or restricted to allow access to only specific users. Social features like user profiles and commenting and rating systems allow for the development of communities around each platform to facilitate the use, management, and quality control of the data the PacGeo instance contains.
+</p>
+<p>
+It is designed for <a href="http://www.spc.int">SPC</a> member countries to easily manage their geospatial data themes across all spatial data themes.
+</p>
+
+{% endblock %}

@@ -1,0 +1,327 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load base_tags %}
+
+{% block title %} PacGeo - Open Access Regional Geospatial Data Repository for the Pacific {% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block middle %}
+{% block hero %}
+
+<br/><br/><br/>
+
+<div align="center" style="background-color: white; width: 100%; height: 160px; background-image: url('{{ STATIC_URL }}geonode/img/b3.png');">
+  <img align="center" src="{{ STATIC_URL }}geonode/img/pacgeo_header.png"/>  
+</div>
+
+
+<div class="jumbotron" style="background-image: url('{{ STATIC_URL }}geonode/img/b1.png');">
+  
+  <div class="container" style="text-align:center;">
+
+    <h3 style="font-weight: normal; margin-top: -90px">An <b>open access geospatial data repository</b> for the Pacific Region providing premier <b>geophysical, geodetic, and marine spatial data sets.</b></h3>
+    <p>
+      Developed through collaboration between the GeoScience Division of Secretariat of the Pacific Community (GSD/SPC), University of Sydney, Geoscience Australia (GA), and GRID-Arendal.
+    </p>
+    <br/>
+    <div align="center" style="width: 100%; margin-bottom: -40px">
+      <img style="height: 90px; margin-right: 50px;" src="static/geonode/img/spc.png"/>
+      <img style="height: 100px; margin-right: 50px" src="static/geonode/img/csiro.png"/>
+      <img style="height: 100px; margin-right: 50px" src="static/geonode/img/unisydney.png"/>
+      <img style="height: 94px; margin-right: 50px" src="static/geonode/img/ga.png"/>
+      <img style="height: 96px; margin-right: 0px; width: 180px;" src="static/geonode/img/gridno.png"/>
+    </div>
+
+    <!--
+	<a class="btn btn-default btn-lg" target="_blank" href="http://docs.geonode.org/en/master/tutorials/users/index.html" role="button">{% blocktrans %}Get Started &raquo;{% endblocktrans %}</a>
+	-->
+  </div>
+</div>
+{% include "_status_message.html" %}
+{% include "_announcements.html" %}
+{% include "_messages.html" %}
+{% endblock %}
+
+{% block mainbody %}
+<div class="big-search" style="padding: 0px; background-image: url('{{ STATIC_URL }}geonode/img/b2.png');">
+  <div class="container">
+    <h3 align="center">{% trans "Search for Data" %}</h3>
+    <div class="search">
+      <form id="search" action="{% url "search" %}" >
+  	<span class="fa fa-search fa-2x"></span>
+  	{% if HAYSTACK_SEARCH %}
+  	<input id="search_input" type="text" placeholder="Search" class="form-control" name="q">
+  	{% else %}
+  	<input id="search_input" type="text" placeholder="Search" class="form-control" name="title__icontains">
+  	{% endif %}
+      </form>
+    </div>
+    <p><a class="btn btn-default btn-lg" href="/search/">Advanced Search</a></p>
+  </div>
+</div>
+
+{% block datasets %}
+<section id="datasets">
+  <div class="container">
+    <div class="row">
+      
+      <div class="container text-center">
+	<h2>Pacific Island Countries</h2>
+	<br/>
+	<div align="center" class="row">
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=ck_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/COOK_ISLANDS.jpg"/><br/>Cook Islands
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=fj_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/FIJI_ISLANDS.jpg"/><br/>Fiji Islands
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=fm_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/FSM.jpg"/><br/>Federated States of Micronesia
+	    </a><br/><br/>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=ki_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/KIRIBATI.jpg"/><br/>Kiribati
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=mh_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/MARSHALL_ISLANDS.jpg"/><br/>Marshall Islands
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=nu_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/NAURU.jpg"/><br/>Nauru
+	    </a>
+	  </div>
+	</div>
+
+	<div align="center" class="row">
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=pl_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/PALAU.jpg"/><br/>Palau
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=pg_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/PNG.jpg"/><br/>Papua New Guinea
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=sb_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/SOLOMON_ISLANDS.jpg"/><br/>Solomon Islands
+	    </a><br/>
+	  </div>
+	  <!--
+	      <div class="col-sm-2">
+		<a href="http://www.pacgeo.org/search/?title__icontains=tk_">
+		  <img src="http://services.gsd.spc.int/pcrafi/flags/TOKELAU.jpg"/><br/>Tokelau
+		</a>
+	      </div>
+	      -->
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=to_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/TONGA.jpg"/><br/>Tonga
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=tv_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/TUVALU.jpg"/><br/>Tuvalu
+	    </a>
+	  </div>
+	</div>
+	<br/>
+	<div align="center" class="row">
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=ws_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/SAMOA.jpg"/><br/>Samoa
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=timor_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/TIMOR_LESTE.png"/><br/>Timor-Leste
+	    </a>
+	  </div>
+	  <div class="col-sm-2">
+	    <a href="http://www.pacgeo.org/search/?title__icontains=vu_">
+	      <img src="http://services.gsd.spc.int/pcrafi/flags/VANUATU.jpg"/><br/>Vanuatu
+	    </a>
+	  </div>
+	</div>
+	
+      </div>
+
+
+
+      <div class="container text-center">
+	<hr/>
+  	<h2>Thematic Areas</h2>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=boundaries&category__identifier__in=planningCadastre" data-toggle="tooltip" data-placement="auto"
+  	     title="Political and administrative boundaries. Land use maps, zoning maps, cadastral surveys, land ownership.">
+  	    <div class="category">
+  	      <i class="fa fa-flag fa-4x"></i>
+  	      <h4>Boundaries</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=structure&category__identifier__in=intelligenceMilitary&category__identifier__in=utilitiesCommunication" data-toggle="tooltip" data-placement="auto"
+  	     title="Buildings, museums, churches, factories, housing, monuments, shops, towers. Energy, water and waste systems and communications infrastructure and services. Military bases, structures, activities." >
+  	    <div class="category">
+  	      <i class="fa fa-home fa-4x"></i>
+  	      <h4>Buildings</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=climatologyMeteorologyAtmosphere" data-toggle="tooltip" data-placement="auto"
+  	     title="Cloud cover, weather, climate, atmospheric conditions, climate change, precipitation" >
+  	    <div class="category">
+  	      <i class="fa fa-umbrella fa-4x"></i>
+  	      <h4>Climate</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=elevation" data-toggle="tooltip" data-placement="auto"
+  	     title="Altitude, bathymetry, digital elevation models, slope, derived products" >
+  	    <div class="category">
+  	      <i class="fa fa-level-up fa-4x"></i>
+  	      <h4>Elevation</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=geoscientificInformation" data-toggle="tooltip" data-placement="auto"
+  	     title="Geophysical features and processes, geology, minerals, sciences dealing with the composition, structure and origin of the earth s rocks, risks of earthquakes, volcanic activity, landslides, gravity information, soils, permafrost, hydrogeology, erosion." >
+  	    <div class="category">
+  	      <i class="fa fa-globe fa-4x"></i>
+  	      <h4>Geology</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=health" data-toggle="tooltip" data-placement="auto"
+  	     title="Health, health services, human ecology, and safety." >
+  	    <div class="category">
+  	      <i class="fa fa-medkit fa-4x"></i>
+  	      <h4>Health</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=imageryBaseMapsEarthCover" data-toggle="tooltip" data-placement="auto"
+  	     title="Land cover, topographic maps, imagery, unclassified images, annotations." >
+  	    <div class="category">
+  	      <i class="fa fa-tree fa-4x"></i>
+  	      <h4>Land Cover</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=biota&category__identifier__in=farming&category__identifier__in=environment" data-toggle="tooltip" data-placement="auto"
+  	     title="Wildlife, vegetation, biological sciences, ecology, wilderness, sealife, wetlands, habitat. Environmental resources, protection and conservation. Agriculture, irrigation, aquaculture, plantations, herding, pests and diseases affecting crops and livestock" >
+  	    <div class="category">
+  	      <i class="fa fa-leaf fa-4x"></i>
+  	      <h4>Nature</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=location" data-toggle="tooltip" data-placement="auto"
+  	     title="Addresses, geodetic networks, control points, postal zones and services, place names" >
+  	    <div class="category">
+  	      <i class="fa fa-map-marker fa-4x"></i>
+  	      <h4>Places</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=economy&category__identifier__in=society" data-toggle="tooltip" data-placement="auto"
+  	     title="Settlements, anthropology, archaeology, education, traditional beliefs, demographic data, crime and justice, census information. Economic activities, conditions and employment." >
+  	    <div class="category">
+  	      <i class="fa fa-male fa-4x"></i>
+  	      <h4>Population</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=transportation" data-toggle="tooltip" data-placement="auto"
+  	     title="Roads, airports/airstrips, shipping routes, tunnels, nautical charts, vehicle or vessel location, aeronautical charts, railways." >
+  	    <div class="category">
+  	      <i class="fa fa-road fa-4x"></i>
+  	      <h4>Transportation</h4>
+  	    </div>
+  	  </a>
+  	</div>
+  	<div class="col-xs-4 col-sm-2">
+  	  <a href="/search/?limit=100&offset=0&category__identifier__in=inlandWaters&category__identifier__in=oceans" data-toggle="tooltip" data-placement="auto"
+  	     title="Rivers and glaciers, salt lakes, water utilization plans, dams, currents, floods. Water quality, hydrographic charts, tides, tidal waves, coastal information, reefs." >
+  	    <div class="category">
+  	      <i class="fa fa-tint fa-4x"></i>
+  	      <h4>Water</h4>
+  	    </div>
+  	  </a>
+  	</div>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block showcase %}
+<section id="showcase">
+  <div class="container">
+    <div class="row">
+      <h2>Featured Datasets</h2>
+      {% verbatim %}
+      <div ng-app="featured">
+        <div ng-repeat="item in featured | limitTo:4">
+          <div class="col-md-3">
+            <a href="{{ item.detail_url }}"><img ng-src="{{ item.thumbnail_url }}" /></a>
+            <h4>{{ item.title | limitTo: 20 }}{{item.title.length > 20 ? '...' : ''}}</h4>
+          </div>
+        </div>
+      </div>
+      {% endverbatim %}
+    </div>
+    <p><a href="/search/">Explore all datasets</a></p>
+  </div>
+</section>
+{% endblock %}
+
+{% endblock %}
+
+{% endblock %}
+
+{% block extra_script %}
+{{ block.super }}
+{% if DEBUG_STATIC %}
+<script src="{{ STATIC_URL }}lib/js/angular.js"></script>
+{% endif %}
+<script type="text/javascript">
+  FEATURED_URL = '{% url 'api_dispatch_list' api_name='api' resource_name='featured' %}'
+  'use strict';
+  (function(){
+  var module = angular.module('featured', []);
+  module.run(function($http, $rootScope){
+  $http.get(FEATURED_URL).success(function(data){
+  $rootScope.featured = data.objects;
+  });
+  });
+  })();
+</script>
+<script>
+  $('[data-toggle="tooltip"]').tooltip();
+</script>
+{% endblock extra_script %}

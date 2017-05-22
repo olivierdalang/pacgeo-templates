@@ -1,0 +1,3 @@
+sudo rsync --progress -az *.html /usr/local/lib/python2.7/dist-packages/geonode/templates/
+sudo rsync --progress -az img/* /var/www/geonode/static/geonode/img/
+
